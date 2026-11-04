@@ -1,21 +1,49 @@
 // --------------------------------------------------
 //  ВАРИАНТ 2 — сетка + цвета + базовое оформление
-//  (сброс стилей, типографика, формы, кнопки, таблицы,
-//   карточки, алерты и т.д.)
+//  (сброс стилей, формы, кнопки, таблицы, карточки)
+//  БЕЗ: типографики (h1-h6 и т.п.), бейджей, алертов
+//  Утилиты: только нужное (отступы, flex, display, цвета)
 //  Без JavaScript-компонентов (модалки, тултипы, колапсы)
 // --------------------------------------------------
 
-@import "colors";                      // <-- ваши цвета
+@import "colors";                      // <-- ваши цвета (quick-colors.scss)
 
 @import "bootstrap/scss/functions";
 @import "bootstrap/scss/variables";
 @import "bootstrap/scss/maps";
 @import "bootstrap/scss/mixins";
+
+// --- Отключаем лишние возможности Bootstrap ---
+$enable-dark-mode:        false; // тёмная тема [data-bs-theme]
+$enable-negative-margins: true;  // классы вида .m-n3 (пригодятся)
+
+// --- Какие утилиты попадут в сборку ---
+// Оставляем только рабочие лошадки: флекс/display, отступы
+// (margin/padding/gap), размеры, видимость, цвет текста и фон.
+// Полный список групп: node_modules/bootstrap/scss/_utilities.scss
 @import "bootstrap/scss/utilities";
 
+$utilities: map-remove(
+  $utilities,
+  "align", "float", "object-fit", "opacity",
+  "overflow", "overflow-x", "overflow-y",
+  "shadow", "focus-ring",
+  "position", "top", "bottom", "start", "end", "translate-middle",
+  "border", "border-top", "border-end", "border-bottom", "border-start",
+  "border-color", "subtle-border-color", "border-width", "border-opacity",
+  "font-family", "font-size", "font-style", "line-height",
+  "text-align", "text-decoration", "text-transform",
+  "white-space", "word-wrap",
+  "text-opacity", "text-color",
+  "link-opacity", "link-offset", "link-underline", "link-underline-opacity",
+  "user-select", "pointer-events",
+  "rounded", "rounded-top", "rounded-end", "rounded-bottom", "rounded-start",
+  "z-index"
+);
+
+// --- Сами стили ---
 @import "bootstrap/scss/root";
-@import "bootstrap/scss/reboot";
-@import "bootstrap/scss/type";
+@import "bootstrap/scss/reboot";       // сброс стилей (заголовки вырежет build.js)
 @import "bootstrap/scss/images";
 @import "bootstrap/scss/containers";
 @import "bootstrap/scss/grid";
@@ -24,8 +52,6 @@
 @import "bootstrap/scss/forms";
 @import "bootstrap/scss/buttons";
 @import "bootstrap/scss/transitions";
-@import "bootstrap/scss/badge";
-@import "bootstrap/scss/alert";
 @import "bootstrap/scss/list-group";
 @import "bootstrap/scss/close";
 @import "bootstrap/scss/card";

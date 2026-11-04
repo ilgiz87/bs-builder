@@ -1,0 +1,50 @@
+// --------------------------------------------------
+//  ВАРИАНТ 3 — самый лёгкий: сетка + цвета + минимум утилит
+//  (отступы margin/padding/gap, flex/display, размеры,
+//   видимость visibility, цвет текста и фон)
+//  БЕЗ: типографики, форм, кнопок, таблиц, карточек
+//  Подходит, когда дизайн верстается полностью вручную.
+// --------------------------------------------------
+
+@import "colors";                      // <-- ваши цвета (quick-colors.scss)
+
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/maps";
+@import "bootstrap/scss/mixins";
+
+// --- Отключаем лишние возможности Bootstrap ---
+$enable-dark-mode:        false; // тёмная тема [data-bs-theme]
+$enable-negative-margins: true;  // классы вида .m-n3 (пригодятся)
+
+// --- Какие утилиты попадут в сборку ---
+// Оставляем только рабочие лошадки: флекс/display, отступы
+// (margin/padding/gap), размеры, видимость, цвет текста и фон.
+// Полный список групп: node_modules/bootstrap/scss/_utilities.scss
+@import "bootstrap/scss/utilities";
+
+$utilities: map-remove(
+  $utilities,
+  "align", "float", "object-fit", "opacity",
+  "overflow", "overflow-x", "overflow-y",
+  "shadow", "focus-ring",
+  "position", "top", "bottom", "start", "end", "translate-middle",
+  "border", "border-top", "border-end", "border-bottom", "border-start",
+  "border-color", "subtle-border-color", "border-width", "border-opacity",
+  "font-family", "font-size", "font-style", "font-weight", "line-height",
+  "text-align", "text-decoration", "text-transform",
+  "white-space", "word-wrap",
+  "text-opacity", "text-color",
+  "link-opacity", "link-offset", "link-underline", "link-underline-opacity",
+  "bg-opacity", "subtle-background-color", "gradient",
+  "user-select", "pointer-events",
+  "rounded", "rounded-top", "rounded-end", "rounded-bottom", "rounded-start",
+  "z-index"
+);
+
+// --- Сами стили: только переменные + контейнеры + сетка ---
+@import "bootstrap/scss/root";          // CSS-переменные (в т.ч. ваши цвета)
+@import "bootstrap/scss/containers";
+@import "bootstrap/scss/grid";
+
+@import "bootstrap/scss/utilities/api"; // сгенерирует оставшиеся утилиты
