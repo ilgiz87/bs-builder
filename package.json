@@ -1,0 +1,25 @@
+{
+  "name": "bs-builder",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ilgiz87/bs-builder.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/ilgiz87/bs-builder/issues"
+  },
+  "homepage": "https://github.com/ilgiz87/bs-builder#readme",
+  "devDependencies": {
+    "bootstrap": "^5.3.8",
+    "sass": "^1.107.1"
+  }
+}
