@@ -1,0 +1,15 @@
+// --------------------------------------------------
+//  ВАРИАНТ 1 — только сетка Bootstrap
+//  (контейнеры, ряды, колонки, брейкпоинты)
+//  Цвета здесь не нужны — это самый лёгкий вариант.
+// --------------------------------------------------
+
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/maps";
+@import "bootstrap/scss/mixins";
+
+@import "bootstrap/scss/root";   // CSS-переменные брейкпоинтов
+@import "bootstrap/scss/reboot"; // базовый сброс стилей
+@import "bootstrap/scss/containers";
+@import "bootstrap/scss/grid";

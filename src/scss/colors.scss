@@ -1,0 +1,33 @@
+// ============================================================
+//  colors.scss — подключение цветов к сборке.
+//
+//  ЗНАЧЕНИЯ ВСЕХ ЦВЕТОВ лежат в файле quick-colors.scss —
+//  правьте их ТАМ, этот файл руками менять не нужно.
+// ============================================================
+
+@import "quick-colors"; // <-- ваши цвета (простой файл без синтаксиса)
+
+// Если какие-то оттенки серого в quick-colors.scss не заданы
+// (оставлены как null), подставляем «родные» значения Bootstrap.
+$gray-100: if($gray-100 == null, #f8f9fa, $gray-100);
+$gray-200: if($gray-200 == null, #e9ecef, $gray-200);
+$gray-300: if($gray-300 == null, #dee2e6, $gray-300);
+$gray-400: if($gray-400 == null, #ced4da, $gray-400);
+$gray-500: if($gray-500 == null, #adb5bd, $gray-500);
+$gray-600: if($gray-600 == null, #6c757d, $gray-600);
+$gray-700: if($gray-700 == null, #495057, $gray-700);
+$gray-800: if($gray-800 == null, #343a40, $gray-800);
+$gray-900: if($gray-900 == null, #212529, $gray-900);
+
+// Не меняйте этот блок: он «прописывает» цвета выше во все
+// классы Bootstrap (btn-primary, text-danger, bg-success и т.д.)
+$theme-colors: (
+  "primary":    $primary,
+  "secondary":  $secondary,
+  "success":    $success,
+  "info":       $info,
+  "warning":    $warning,
+  "danger":     $danger,
+  "light":      $light,
+  "dark":       $dark
+);
